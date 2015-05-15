@@ -1,9 +1,50 @@
 
 body{
-	background: #181818;
+	background: #fff;
 }
 
 p{
-	color: #fff;
+	color: #181818;
 	text-align: justify;
+}
+
+.form-horizontal .control-label{
+	display: none;
+}
+
+
+.col-sm-offset-2{
+	margin-left: 0px;
+}
+
+
+.row{
+	  padding-bottom: 40px;
+}
+
+
+.form-inline .checkbox, .form-inline .radio{
+	display: none;
+}
+
+form.form-inline {
+  width: 480px;
+  float: right;
+  margin-top: -48px;
+}
+
+
+footer{
+	width: 100%;
+	border-top: 1px solid #eee;
+	height: 200px;
+}
+
+.bs-docs-footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 100px;
+  color: #767676;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
 }
