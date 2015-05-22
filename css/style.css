@@ -12,7 +12,9 @@ p{
 	display: none;
 }
 
-
+a:focus, a:hover {
+  text-decoration: none;
+}
 .col-sm-offset-2{
 	margin-left: 0px;
 }

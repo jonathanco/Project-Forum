@@ -115,7 +115,7 @@ function test_input($data) {
           Variables Variables determine the number of columns, the gutter width, and the media query point at which 
           to begin floating columns. We use these to generate the predefined grid classes documented above, as well as 
           for the custom mixins listed below.</p>
-          <button type="button" class="btn btn-default">forum Button</button>
+          <button type="button" class="btn btn-default"><a href="http://localhost:8080/pro2/index2.php">forum Button</a></button>
       </div>
       <div class="col-md-6">
         <small>Sharing ideas</small>
