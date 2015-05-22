@@ -17,6 +17,12 @@ p{
 	margin-left: 0px;
 }
 
+span.error {
+  position: relative;
+  top: 2px;
+  left: -187px;
+  z-index: 10000000;
+}
 
 .row{
 	  padding-bottom: 40px;
