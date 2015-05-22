@@ -36,20 +36,20 @@ $nameErr = $emailErr = "";
 $pass = $email =  "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   if (empty($_GET["pass"])) {
+   if (empty($_POST["pass"])) {
      $nameErr = "Name is required";
    } else {
-     $pass = test_input($_GET["pass"]);
+     $pass = test_input($_POST["pass"]);
      // check if name only contains letters and whitespace
      if (!preg_match("/^[a-zA-Z ]*$/",$pass)) {
        $nameErr = "Only letters and white space allowed"; 
      }
    }
    
-   if (empty($_GET["email"])) {
+   if (empty($_POST["email"])) {
      $emailErr = "Email is required";
    } else {
-     $email = test_input($_GET["email"]);
+     $email = test_input($_POST["email"]);
      // check if e-mail address is well-formed
      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
        $emailErr = "Invalid email format"; 
@@ -57,9 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    }
 
   // Validate the credentials (in DB)
-   var_dump($_GET["email"]);
   if (User::isValid ($email,$pass )) {
-    $_COOKIE['userName'] = $email;
+    $_SESSION['userName'] = $email;
   }
 }
 
@@ -77,17 +76,14 @@ function test_input($data) {
       <small>Sharing ideas</small>
    </h1>
 <?php
-  if (isset($_COOKIE['userName'])){
+  if (isset($_SESSION['userName'])){
 ?>
-  Welcome <?php echo $_COOKIE['userName'];?> !
+  Welcome <?php echo $_SESSION['userName'];?> !
 <?php
   }
   else{
 ?>
-    <form class="form-inline" method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
-<?php
-  }
-?>
+    <form class="form-inline" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
     <div class="form-group">
       <label class="sr-only" for="email">Email address</label>
       <input type="text" name="email" class="form-control" id="email" placeholder="Enter email" value="<?php echo $email;?>">
@@ -105,6 +101,9 @@ function test_input($data) {
     </div>
     <button type="submit" class="btn btn-default">Sign in</button>
   </form>
+<?php
+  }
+?>
 </div>
 <p>This is a forum to Sharing ideas.</p>
       <div class="row">
