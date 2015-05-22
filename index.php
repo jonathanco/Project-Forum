@@ -1,3 +1,7 @@
+<?php
+ include_once('users.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,25 +36,31 @@ $nameErr = $emailErr = "";
 $pass = $email =  "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   if (empty($_POST["pass"])) {
+   if (empty($_GET["pass"])) {
      $nameErr = "Name is required";
    } else {
-     $pass = test_input($_POST["pass"]);
+     $pass = test_input($_GET["pass"]);
      // check if name only contains letters and whitespace
      if (!preg_match("/^[a-zA-Z ]*$/",$pass)) {
        $nameErr = "Only letters and white space allowed"; 
      }
    }
    
-   if (empty($_POST["email"])) {
+   if (empty($_GET["email"])) {
      $emailErr = "Email is required";
    } else {
-     $email = test_input($_POST["email"]);
+     $email = test_input($_GET["email"]);
      // check if e-mail address is well-formed
      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
        $emailErr = "Invalid email format"; 
      }
    }
+
+  // Validate the credentials (in DB)
+   var_dump($_GET["email"]);
+  if (User::isValid ($email,$pass )) {
+    $_COOKIE['userName'] = $email;
+  }
 }
 
 function test_input($data) {
@@ -66,15 +76,26 @@ function test_input($data) {
    <h1>forum
       <small>Sharing ideas</small>
    </h1>
-    <form class="form-inline" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+<?php
+  if (isset($_COOKIE['userName'])){
+?>
+  Welcome <?php echo $_COOKIE['userName'];?> !
+<?php
+  }
+  else{
+?>
+    <form class="form-inline" method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+<?php
+  }
+?>
     <div class="form-group">
-      <label class="sr-only" for="exampleInputEmail3">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email" value="<?php echo $email;?>">
+      <label class="sr-only" for="email">Email address</label>
+      <input type="text" name="email" class="form-control" id="email" placeholder="Enter email" value="<?php echo $email;?>">
    <span class="error"><?php echo $nameErr;?></span>
     </div>
     <div class="form-group">
-      <label class="sr-only" for="exampleInputPassword3">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" value="<?php echo $pass;?>">
+      <label class="sr-only" for="pass">Password</label>
+      <input type="text" name="pass" class="form-control" id="pass" placeholder="Password" value="<?php echo $pass;?>">
     <span class="error"><?php echo $pass;?></span>
     </div>
     <div class="checkbox">

@@ -59,9 +59,38 @@
           for the custom mixins listed below.</p>
       </div>
       <div class="col-md-8">
+        <small>Adi hell</small><small>10/10/15</small>
+        <p>Less mixins and variables
+          In addition to prebuilt grid classes for fast layouts, 
+          Bootstrap includes Less variables and mixins for quickly generating your own simple, semantic layouts.
+          Variables Variables determine the number of columns, the gutter width, and the media query point at which 
+          to begin floating columns. We use these to generate the predefined grid classes documented above, as well as 
+          for the custom mixins listed below.</p>
+      </div>
+            <div class="col-md-8">
         <small>Sharing ideas</small>
+        <p>Less mixins and variables
+          In addition to prebuilt grid classes for fast layouts, 
+          Bootstrap includes Less variables and mixins for quickly generating your own simple, semantic layouts.
+          Variables Variables determine the number of columns, the gutter width, and the media query point at which 
+          to begin floating columns. We use these to generate the predefined grid classes documented above, as well as 
+          for the custom mixins listed below.</p>
+      </div>
+            <div class="col-md-8">
+        <small>Sharing ideas</small>
+        <p>Less mixins and variables
+          In addition to prebuilt grid classes for fast layouts, 
+          Bootstrap includes Less variables and mixins for quickly generating your own simple, semantic layouts.
+          Variables Variables determine the number of columns, the gutter width, and the media query point at which 
+          to begin floating columns. We use these to generate the predefined grid classes documented above, as well as 
+          for the custom mixins listed below.</p>
+      </div>
+      <div class="col-md-8">
+        <small>Sharing ideas</small>
+        <form method="POST" action="">
           <textarea class="form-control" rows="5"><?php echo $comment;?></textarea>
           <button type="button" class="btn btn-default" id="textbtn">forum Button</button>
+        </form>
 <?php
 
 
