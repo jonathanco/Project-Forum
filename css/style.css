@@ -60,3 +60,7 @@ footer{
 #textbtn {
   margin-top: 10px;
 }
+
+textarea.form-control{
+    resize: none;
+}

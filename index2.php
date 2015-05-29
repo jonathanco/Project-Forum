@@ -1,3 +1,7 @@
+<?php
+ require_once('connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Starter Template for Bootstrap</title>
+
+
+
+    <title>Forum | Jonathan</title>
+
+
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -27,7 +36,7 @@
 
     <div class="container">
 <div class="page-header">
-   <h1>forum
+   <h1>Forum
       <small>Sharing ideas</small>
    </h1>
    <form class="form-inline">
@@ -59,7 +68,7 @@
           for the custom mixins listed below.</p>
       </div>
       <div class="col-md-8">
-        <small>Adi hell</small><small>10/10/15</small>
+        <small>Adi hell</small> <small>10/10/14</small>
         <p>Less mixins and variables
           In addition to prebuilt grid classes for fast layouts, 
           Bootstrap includes Less variables and mixins for quickly generating your own simple, semantic layouts.
@@ -68,7 +77,7 @@
           for the custom mixins listed below.</p>
       </div>
             <div class="col-md-8">
-        <small>Sharing ideas</small>
+        <small>Adi hell</small> <small>15/10/14</small>
         <p>Less mixins and variables
           In addition to prebuilt grid classes for fast layouts, 
           Bootstrap includes Less variables and mixins for quickly generating your own simple, semantic layouts.
@@ -77,7 +86,7 @@
           for the custom mixins listed below.</p>
       </div>
             <div class="col-md-8">
-        <small>Sharing ideas</small>
+        <small>Adi hell</small> <small>20/10/14</small>
         <p>Less mixins and variables
           In addition to prebuilt grid classes for fast layouts, 
           Bootstrap includes Less variables and mixins for quickly generating your own simple, semantic layouts.
@@ -88,11 +97,19 @@
       <div class="col-md-8">
         <small>Sharing ideas</small>
         <form method="POST" action="">
-          <textarea class="form-control" rows="5"><?php echo $comment;?></textarea>
-          <button type="button" class="btn btn-default" id="textbtn">forum Button</button>
+          <textarea name="text_coment" class="form-control" rows="8" maxlength="1000"></textarea>
+          <button type="submit" class="btn btn-default" id="textbtn">Share</button>
         </form>
 <?php
 
+
+ if(isset($_POST['text_coment']))
+ {
+   $Reciever = $_POST['Receiver1'];
+   $Subject = $_POST['Sub'];
+
+
+}
 
 
 ?>
@@ -101,7 +118,7 @@
 
       </div>
 </div>
-<button type="button" class="btn btn-default" hraf="../index">go bake</button>
+<button type="button" class="btn btn-default" hraf="../index">Go Bake</button>
 <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   </div><!-- conteiner -->
